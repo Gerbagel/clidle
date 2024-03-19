@@ -1,0 +1,43 @@
+body {
+    margin: 0 0 0 0;
+    width: 80vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    font-family: 'Fira Code';
+}
+
+main {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: calc(80vw - 10px);
+}
+
+#console {
+    max-height: 90%;
+    min-height: 1%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#textarea {
+    height: 10%;
+    width: 100%;
+}
+
+#commandinput {
+    background-color: black;
+    color: white;
+    min-width: 100%;
+    width: 100%;
+    caret-color: white;
+    border: none;
+    font-size: 18px;
+    font-family: 'Fira Code';
+}
+
+#commandinput:focus {
+    outline: none;
+}
