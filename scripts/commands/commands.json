@@ -1,0 +1,14 @@
+{
+    "commands": {
+        "help": {
+            "desc": "Shows all available commands",
+            "args": "none",
+            "function": "help()"
+        },
+        "crunch": {
+            "desc": "Crunches a bit",
+            "args": "none",
+            "function": "crunch()"
+        }
+    }
+}
