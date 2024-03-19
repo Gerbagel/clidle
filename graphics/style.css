@@ -30,8 +30,8 @@ main {
 #commandinput {
     background-color: black;
     color: white;
-    min-width: 100%;
-    width: 100%;
+    min-width: 90%;
+    width: 90%;
     caret-color: white;
     border: none;
     font-size: 18px;

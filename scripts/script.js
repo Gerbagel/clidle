@@ -1,5 +1,6 @@
 let consoleBox = document.querySelector("#console")
 let inputBox = document.querySelector("#commandinput")
+let userString = "root@root:~$ "
 var commands = {};
 
 const command = {
@@ -30,7 +31,7 @@ onload = async (event) => {
 }
 
 function executeCommand() {
-    consoleBox.innerHTML += "<br />" + inputBox.value + " <br />"
+    consoleBox.innerHTML += "<br />" + userString + inputBox.value + " <br />"
 
     if (inputBox.value !== "" && !inputBox.value !== " ") {
         var command = inputBox.value.split(' ')
