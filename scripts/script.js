@@ -11,7 +11,7 @@ const command = {
 
 onload = async (event) => {
     let lastLogin = localStorage.getItem("lastLogin")
-    if (lastLogin !== "NaN") {
+    if (Date.parse(lastLogin) !== 0) {
         consoleBox.innerHTML += "<br /><p>Last login: " + new Date(lastLogin).toLocaleString('en-GB') + "</p>"
     }
 
