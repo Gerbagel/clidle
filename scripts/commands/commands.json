@@ -9,6 +9,11 @@
             "desc": "Crunches a bit",
             "args": "none",
             "function": "crunch()"
+        },
+        "reset": {
+            "desc": "Resets all progress",
+            "args": "none",
+            "function": "reset()"
         }
     }
 }

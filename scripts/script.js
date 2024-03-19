@@ -86,3 +86,7 @@ function help() {
 function crunch() {
     consoleBox.innerHTML += "CRUNCH! <br />"
 }
+
+function reset() {
+    localStorage.clear()
+}
