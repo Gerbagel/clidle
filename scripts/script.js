@@ -11,7 +11,7 @@ const command = {
 
 onload = async (event) => {
     let lastLogin = localStorage.getItem("lastLogin")
-    if (Date.parse(lastLogin) !== 0) {
+    if (lastLogin !== null) {
         consoleBox.innerHTML += "<br /><p>Last login: " + new Date(lastLogin).toLocaleString('en-GB') + "</p>"
     }
 
@@ -36,7 +36,6 @@ onload = async (event) => {
 }
 
 window.onbeforeunload = (event) => {
-    console.log(Date.now())
     localStorage.setItem("lastLogin", new Date())
 }
 
