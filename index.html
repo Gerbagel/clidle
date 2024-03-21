@@ -4,23 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
-  <link type="icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <link rel="stylesheet" href="graphics/style.css">
   <title>clidle_</title>
 </head>
 <body>
   <main>
     <div id="console">
-      <h2>Welcome to clidle_!</h2> 
+      <p>Welcome to</p>
+      <pre>
+        ______  __       __   _______   __       _______       
+        /      ||  |     |  | |       \ |  |     |   ____|      
+       |  ,----'|  |     |  | |  .--.  ||  |     |  |__         
+       |  |     |  |     |  | |  |  |  ||  |     |   __|        
+       |  `----.|  `----.|  | |  '--'  ||  `----.|  |____       
+        \______||_______||__| |_______/ |_______||_______|_____ 
+                                                        |______|
+      </pre>
       <p>Use the "help" command to get started</p> <br />
     </div>
-    <div id="textarea">
-      <form action="javascript:;" onsubmit="executeCommand()">
-        <label for="commandinput">root@root:~$</label>
-        <input type="text" id="commandinput" autocomplete="off" autofocus />
-        <input type="submit" hidden />
-      </form>
-    </div>
+    <form id="textarea" action="javascript:;" onsubmit="executeCommand()">
+      <label for="commandinput">root@root:~$</label>
+      <input type="text" id="commandinput" autocomplete="off" autofocus />
+      <input type="submit" hidden />
+    </form>
   </main>
 
   <script src="scripts/script.js" type="text/javascript"></script>

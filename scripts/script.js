@@ -1,12 +1,18 @@
 let consoleBox = document.querySelector("#console")
 let inputBox = document.querySelector("#commandinput")
+let endl = "<br />"
+let breakl = "================================" + endl
 let userString = "root@root:~$ "
-var commands = {};
+var commands = {}
 
 const command = {
     args: "none",
     desc: "",
     function: undefined
+}
+
+function addLineToConsole(line) {
+    consoleBox.innerHTML += line + endl
 }
 
 onload = async (event) => {
@@ -40,7 +46,7 @@ window.onbeforeunload = (event) => {
 }
 
 function executeCommand() {
-    consoleBox.innerHTML += userString + inputBox.value + " <br />"
+    addLineToConsole(userString + inputBox.value)
 
     if (inputBox.value !== "" && !inputBox.value !== " ") {
         var command = inputBox.value.split(' ')
@@ -61,31 +67,32 @@ function executeCommand() {
 }
 
 function helpCommand(command) {
-    let descString = "Usage: " + command + " <br />"
-    descString += "Description: " + commands[command]["desc"] + "<br />"
+    let descString = "Usage: " + command + endl
+    descString += "Description: " + commands[command]["desc"]
     if (commands[command]["args"] !== "none") {
-        descString += "Args: " + commands[elem]["args"] + " <br />"
+        descString += endl + "Args: " + commands[elem]["args"]
     }
-    consoleBox.innerHTML += descString
+    addLineToConsole(descString)
 }
 
 function help() {
     for (const elem in commands)
     {
-        let descString = "<hr />Usage: " + elem + " <br />"
-        descString += "Description: " + commands[elem]["desc"] + " <br />"
+        let descString = breakl + "Usage: " + elem + endl
+        descString += "Description: " + commands[elem]["desc"]
         if (commands[elem]["args"] !== "none")
         {
-            descString += "Args: " + commands[elem]["args"] + " <br />"
+            descString += endl + "Args: " + commands[elem]["args"]
         }
-        consoleBox.innerHTML += descString
+        addLineToConsole(descString)
     }
 }
 
 function crunch() {
-    consoleBox.innerHTML += "CRUNCH! <br />"
+    addLineToConsole("CRUNCH!")
 }
 
 function reset() {
+    addLineToConsole(inputBox.value)
     localStorage.clear()
 }

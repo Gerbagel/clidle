@@ -23,6 +23,7 @@ main {
 }
 
 #textarea {
+    display: flex;
     height: 10%;
     width: 100%;
 }
@@ -30,8 +31,7 @@ main {
 #commandinput {
     background-color: black;
     color: white;
-    min-width: 90%;
-    width: 90%;
+    flex-grow: 1;
     caret-color: white;
     border: none;
     font-size: 18px;
