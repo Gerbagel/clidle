@@ -130,19 +130,6 @@ function helpCommand(command) {
     addLineToConsole(descString)
 }
 
-function help() {
-    for (const elem in commands)
-    {
-        let descString = breakl + "Usage: " + elem + endl
-        descString += "Description: " + commands[elem]["desc"]
-        if (commands[elem]["args"] !== "none")
-        {
-            descString += endl + "Args: " + commands[elem]["args"]
-        }
-        addLineToConsole(descString)
-    }
-}
-
 function crunch() {
     bits++
 
@@ -161,7 +148,25 @@ function crunch() {
     localStorage.setItem("bytes", bytes)
 }
 
+function help() {
+    for (const elem in commands)
+    {
+        let descString = breakl + "Usage: " + elem + endl
+        descString += "Description: " + commands[elem]["desc"]
+        if (commands[elem]["args"] !== "none")
+        {
+            descString += endl + "Args: " + commands[elem]["args"]
+        }
+        addLineToConsole(descString)
+    }
+}
+
 function reset() {
     addLineToConsole(inputBox.value)
     localStorage.clear()
+}
+
+function status() {
+    displayBits()
+    displayBytes()
 }

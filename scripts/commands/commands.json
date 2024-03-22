@@ -1,19 +1,24 @@
 {
     "commands": {
-        "help": {
-            "desc": "Shows all available commands",
-            "args": "none",
-            "function": "help()"
-        },
         "crunch": {
             "desc": "Crunches a bit",
             "args": "none",
             "function": "crunch()"
         },
+        "help": {
+            "desc": "Shows all available commands",
+            "args": "none",
+            "function": "help()"
+        },
         "reset": {
             "desc": "Resets all progress",
             "args": "none",
             "function": "reset()"
+        },
+        "status": {
+            "desc": "Shows status of bits and bytes",
+            "args": "none",
+            "function": "status()"
         }
     }
 }
