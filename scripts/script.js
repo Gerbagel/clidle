@@ -16,7 +16,7 @@ const command = {
 }
 
 function addLineToConsole(line) {
-    consoleBox.innerHTML += line + endl
+    consoleBox.innerHTML += `<p>${line}</p>`
 }
 
 function displayBits() {

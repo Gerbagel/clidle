@@ -8,6 +8,30 @@ body {
     font-family: 'Fira Code';
 }
 
+p {
+    margin: 0 0 0 0;
+}
+
+p::selection {
+    background-color: white;
+    color: black;
+}
+
+p::-moz-selection {
+    background-color: white;
+    color: black;
+}
+
+pre::selection {
+    background-color: white;
+    color: black;
+}
+
+pre::-moz-selection {
+    background-color: white;
+    color: black;
+}
+
 main {
     position: absolute;
     bottom: 0;
