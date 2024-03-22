@@ -59,14 +59,14 @@ onload = async (event) => {
     }
 
     console.log(commands)
-
-    inputBox.onblur = () => {
-        setTimeout(() => inputBox.focus(), 20)
-    }
 }
 
 window.onbeforeunload = (event) => {
     localStorage.setItem("lastLogin", new Date())
+}
+
+document.onkeyup = (event) => {
+    setTimeout(() => inputBox.focus(), 20)
 }
 
 inputBox.onkeydown = (event) => {
