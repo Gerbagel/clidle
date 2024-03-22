@@ -15,6 +15,14 @@ main {
     width: calc(80vw - 10px);
 }
 
+.emptyBit {
+
+}
+
+.fullBit {
+
+}
+
 #console {
     max-height: 90%;
     min-height: 1%;
@@ -29,6 +37,7 @@ main {
 }
 
 #commandinput {
+    margin-left: 10px;
     background-color: black;
     color: white;
     flex-grow: 1;

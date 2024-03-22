@@ -4,6 +4,10 @@ let endl = "<br />"
 let breakl = "================================" + endl
 let userString = "root@root:~$ "
 var commands = {}
+var commandHistory = []
+var commandHistoryLoc = null
+var bits = localStorage.getItem("bits") || 0
+var bytes = localStorage.getItem("bytes") || 0
 
 const command = {
     args: "none",
@@ -15,11 +19,31 @@ function addLineToConsole(line) {
     consoleBox.innerHTML += line + endl
 }
 
+function displayBits() {
+    var stringToShow = "Bits: "
+    for (var i = 0; i < bits; i++) {
+        stringToShow += "▮"
+    }
+    for (var i = 0; i < 8 - bits; i++) {
+        stringToShow += "▯"
+    }
+    stringToShow += " (" + bits + ")"
+    addLineToConsole(stringToShow)
+}
+
+function displayBytes() {
+    addLineToConsole("Bytes: " + bytes)
+}
+
 onload = async (event) => {
     let lastLogin = localStorage.getItem("lastLogin")
     if (lastLogin !== null) {
-        consoleBox.innerHTML += "<br /><p>Last login: " + new Date(lastLogin).toLocaleString('en-GB') + "</p>"
+        addLineToConsole("Last login: " + new Date(lastLogin).toLocaleString('en-GB') + endl)
     }
+
+    displayBits()
+    displayBytes()
+    addLineToConsole(endl)
 
     var jsonCommands
     await fetch("scripts/commands/commands.json")
@@ -45,7 +69,38 @@ window.onbeforeunload = (event) => {
     localStorage.setItem("lastLogin", new Date())
 }
 
+inputBox.onkeydown = (event) => {
+    // if arrow up, go up in command history
+    if (event.key === "ArrowUp") {
+        if (commandHistoryLoc === null) {
+            commandHistoryLoc = commandHistory.length-1
+        }
+        else {
+            commandHistoryLoc--
+            if (commandHistoryLoc < 0) {commandHistoryLoc = 0}
+        }
+        if (commandHistory[commandHistoryLoc] != undefined)
+        {
+            inputBox.value = commandHistory[commandHistoryLoc]
+        }
+    }
+    // if arrow down, go down in command history
+    else if (event.key === "ArrowDown") {
+        if (commandHistoryLoc === commandHistory.length-1) {commandHistoryLoc = null}
+        if (commandHistoryLoc != null) {
+            commandHistoryLoc++
+            inputBox.value = commandHistory[commandHistoryLoc]
+        }
+        else {
+            inputBox.value = ""
+        }
+    }
+}
+
 function executeCommand() {
+    inputBox.value.trim()
+    commandHistory.push(inputBox.value)
+    commandHistoryLoc = null
     addLineToConsole(userString + inputBox.value)
 
     if (inputBox.value !== "" && !inputBox.value !== " ") {
@@ -89,7 +144,21 @@ function help() {
 }
 
 function crunch() {
-    addLineToConsole("CRUNCH!")
+    bits++
+
+    if (bits === 8)
+    {
+        bits = 0
+        displayBits()
+        bytes++
+        displayBytes()
+    }
+    else {
+        displayBits()
+    }
+
+    localStorage.setItem("bits", bits)
+    localStorage.setItem("bytes", bytes)
 }
 
 function reset() {
